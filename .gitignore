@@ -1,2 +1,2 @@
-./data/redis/*
-./logs
+data/redis/*
+logs

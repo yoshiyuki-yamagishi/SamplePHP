@@ -2,10 +2,15 @@
 
 body {
     font-family: "BIZ UD明朝 Medium";
+    background-image: url("../image/image1.jpg");
+    background-size: auto;
 }
 .ml-4 .text-lg .leading-7 .font-semibold {
     color: red;
+}
 
 
+
+/*div id="splash">*/
 
 

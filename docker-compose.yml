@@ -1,0 +1,38 @@
+version: '3'
+services:
+  php:
+    container_name: sample_php
+    build: ./docker/php
+    volumes:
+      - ./src:/var/www/html:cached
+      - ./docker/php/apache2.conf:/etc/apache2/apache2.conf
+      - ./docker/php/sites-available:/etc/apache2/sites-available
+      - ./docker/php/php.ini-development:/usr/local/etc/php/php.ini
+    ports:
+      - 80:80
+    links:
+      - db
+      - redis
+  db:
+    container_name: mysql
+    build: ./db
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: app
+      MYSQL_USER: sample
+      MYSQL_PASSWORD: sample
+      MYSQL_HOST: ""
+    volumes:
+      - ./db/initdb.d:/docker-entrypoint-initdb.d
+      - ./logs/mysql:/var/log/mysql
+    ports:
+      - "3306:3306"
+
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - "./data/redis/:/data"
+    command: redis-server --appendonly yes

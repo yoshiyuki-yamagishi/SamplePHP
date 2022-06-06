@@ -1,16 +1,54 @@
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho');
+
+/*レイアウト*/
+h1 {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
 
 body {
-    font-family: "BIZ UD明朝 Medium";
-    background-image: url("../image/image1.jpg");
-    background-size: auto;
+    background-image: url("/image/image1.jpg");
+    font-family: 'Nunito', sans-serif;
+    position: relative;
+    width: 50%;
+    height: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-.ml-4 .text-lg .leading-7 .font-semibold {
-    color: red;
+
+.area1 {
+    width: 100%;
+    max-width: 1000px;
+    background-color: rgba(255,255,255,0.8);
+    padding: 20px;
+    margin:0 0 0 0px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 40px;
 }
 
+h2 {
+    position: relative;
+    padding-left: 25px;
+}
 
-
-/*div id="splash">*/
-
+h2:after {
+    position: absolute;
+    content: '';
+    bottom: -3px;
+    left: 390px;
+    width: 25%;
+    border-bottom: solid 3px rgb(119, 195, 223);
+}
 

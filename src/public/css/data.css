@@ -2,16 +2,18 @@
 @import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho');
 
 /*レイアウト*/
-h1 {
+#ImagePenguin {
+    width: 15%;
     position: fixed;
-    top: 20%;
-    left: 50%;
+    top: 10%;
+    left: 10%;
     transform: translate(-50%,-50%);
 }
 
 
 body {
     background-image: url("/image/image1.jpg");
+    background-attachment: fixed;                   /*スクロール　背景固定*/
     font-family: 'Nunito', sans-serif;
     position: relative;
     width: 50%;
@@ -19,38 +21,31 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
-a {
-    color: #dc6688;
-    text-decoration: none;
+h1 {
+    text-align: center;
 }
-a:hover {
-    color: #dc6688;
-}
-.area1 {
-    width: 100%;
-    max-width: 1000px;
+.area {
+    width: 150%;
+    max-width: 1800px;
     background-color: rgba(255,255,255,0.8);
     padding: 20px;
     margin:0 0 0 0px;
-    text-align: center;
+    text-align: left;
     letter-spacing: 0.03em;
-    position: fixed;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    position: relative;
+    top: 50%;
+    left: 23%;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;
     border-bottom-left-radius: 40px;
 }
 
-h2 {
+.
+
+.area1-1 .area1-2 .area1-3 .area1-4 {
     position: relative;
-    padding-left: 25px;
-    color: black;
-}
-h2 div {
-    overflow-wrap: break-word;
+    padding-left: 50px;
 }
 
 
@@ -150,4 +145,78 @@ body.appear #container{
     100% {
         opacity: 1;
     }
+}
+
+.btn-1  {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+                        /*deta CSS*/
+
+
+table{
+    width: auto;
+    border-collapse:separate;
+    border-spacing: 0;
+    table-layout: auto;
+}
+
+table .th-4 {
+    width: 60%;
+}
+
+
+table th:first-child{
+    border-radius: 5px 0 0 0;
+}
+
+table th:last-child{
+    border-radius: 0 5px 0 0;
+    border-right: 1px solid #3c6690;
+}
+
+table th{
+    text-align: center;
+    color:white;
+    word-break: break-word;
+    position: sticky;   /*スクロールしてもついてくるように設定*/
+    top: 0;
+    left: 0;
+    background: linear-gradient(#F2B9A1, #EA6264);
+    border-left: 1px solid #3c6690;
+    border-top: 1px solid #3c6690;
+    border-bottom: 1px solid #3c6690;
+    box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+    width: 15%;
+    padding: 10px 0;
+}
+
+table td{
+    text-align: center;
+    word-break: break-word;       /*性別が横に。折り返しプロパティ*/
+    border-left: 1px solid #a8b7c5;
+    border-bottom: 1px solid #a8b7c5;
+    border-top:none;
+    box-shadow: 0px -3px 5px 1px #eee inset;
+    width: 15%;
+    padding: 10px 0;
+}
+
+table td:last-child{
+    border-right: 1px solid #a8b7c5;
+}
+
+table tr:last-child td:first-child {
+    border-radius: 0 0 0 5px;
+}
+
+table tr:last-child td:last-child {
+    border-radius: 0 0 5px 0;
+    width: 50%;
+}
+
+.linkBack {
+    text-align: right;
 }

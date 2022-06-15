@@ -15,4 +15,8 @@ $(window).on('load',function(){
 
 });
 
+$(document).ready(function() {
+    $("#slide").animate({ marginLeft: "3000px" }, 10000);
+})
+
 

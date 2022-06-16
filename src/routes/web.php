@@ -14,8 +14,20 @@ use App\Http\Controllers\IndexController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('Linux1', function () {
+    return view('index');
+});
+Route::get('LinuxForm', function () {
+    return view('form2');
+});
 
 Route::get('', [IndexController::class, 'index'])->name('index');
+Route::post('form', [IndexController::class, 'form'])->name('form');
+//追加
+Route::get('LinuxData', [IndexController::class, 'dataList'])->name('dataList');
+
+
+//Route::get('/', function () {
+//   return view('form');
+//});
+

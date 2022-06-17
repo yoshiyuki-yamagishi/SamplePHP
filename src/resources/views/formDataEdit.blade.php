@@ -1,7 +1,7 @@
 @extends('layout.layout')
 
 @section('pageCss')
-    <link rel="stylesheet" href="./css/data.css">
+    <link rel="stylesheet" href="./css/app2.css">
 @endsection
 
 @section('content')

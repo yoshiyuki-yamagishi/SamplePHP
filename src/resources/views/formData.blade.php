@@ -12,6 +12,7 @@
             <th class="th-2">メールアドレス</th>
             <th class="th-3" >性別</th>
             <th class="th-4">内容</th>
+        　　　<th class="th-4">編集</th>
         </tr>
         @foreach($dataList as $data)
             <tr>

@@ -24,7 +24,7 @@ class IndexService
      * @param $content
      * @return array
      */
-    public static function saveData($name, $email, $gender, $content)
+    public static function saveData($name, $email, $gender, $content,)
     {
         // データを保存
         $userAddress = UserAddress::insert($name, $email, $gender, $content);
@@ -48,17 +48,17 @@ class IndexService
         return $response;
     }
 
-//追加
     public static function getDataList()
     {
         $data = UserAddress::getAllData();
         $responseList = [];
-        foreach ($data as $val) {
+        foreach ($data as $val) { //繰り返し処理
             $setData = [
                 'name' => $val->name,
                 'email' => $val->email,
                 'gender' => self::$genderStr[$val->gender],
                 'content' => $val->content,
+                'id' => $val->id,
             ];
             $responseList[] = json_decode(json_encode($setData));
         }
@@ -66,15 +66,55 @@ class IndexService
         return $responseList;
     }
 
+    public static function editData($editId) //データ編集
+    {
+/*        $userAddressList = UserAddress::getForId($editId);
+        $userAddress = $userAddressList->first();*/
+        $userAddress = UserAddress::find($editId); //UserAddressから$editIdの一つを見つけてくる
 
+        $response = [
+            'id' => $userAddress->id,
+            'name' => $userAddress->name,
+            'email' => $userAddress->email,
+            'gender' => $userAddress->gender,
+            'content' => $userAddress->content,
+        ];
+        return $response;
+    }
 
+    public static function updateData($param)
+    {
+        $userAddress = UserAddress::find($param["id"]);
 
+        $userAddress->updateName($param["name"], false);
+        $userAddress->updateGender($param["gender"], false);
+        $userAddress->updateEmail($param["email"], false);
+        $userAddress->updateContent($param["content"]);
+
+        $response = [
+            'id' => $userAddress->id,
+            'name' => $userAddress->name,
+            'email' => $userAddress->email,
+            'gender' => $userAddress->gender,
+            'content' => $userAddress->content,
+            'maleCount' => 0
+        ];
+        return $response;
+    }
+
+    public static function updateName($id, $name)
+    {
+        $userAddress = UserAddress::find($id);
+        $userAddress->name = $name;
+        $userAddress->save();
+
+    }
 
 
     public function _saveData($name, $email, $gender, $content)
     {
         // データを保存
-        $userAddress = UserAddress::insert($name, $email, $gender, $content);
+        $userAddress = UserAddress::insert($name, $email, $gender, $content,);
 
         // 男性のデータをとる
         $maleData = UserAddress::getForGender(1);

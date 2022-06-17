@@ -5,13 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * class UserAddress
+ * desc  user_addressテーブル操作クラス
+ */
 class UserAddress extends Model
 {
     use HasFactory;
 
     protected $table = "user_address";
     public $timestamps = false;
-
+    protected $primaryKey = "id";
 
     /**
      * データの保存
@@ -33,8 +37,9 @@ class UserAddress extends Model
 
         return $model;
     }
+
     /**
-     * 指定したgenderのデータ取得
+     * 特定のgenderのデータだけを取ってくる
      *
      * @param $gender
      * @return mixed
@@ -45,15 +50,47 @@ class UserAddress extends Model
         return $model;
     }
 
-    public function updateGender($gender)
+    //idからレコード抽出
+    public static function getForId($id)
     {
-        $this->gender = $gender;
-        $this->save();
+        $model = self::where('id', $id)->get();
+        return $model;
     }
 
-    public static function getAllData()             //getAllDataをつくって
+    public static function getAllData() //getAllDataをつくって
     {
-        $Data = self::get();        //$dataをつくってgetで自分自身つまりUseraddressからデータをもってくる
+        $Data = self::get(); //$dataをつくってgetで自分自身つまりUseraddressからデータをもってくる
         return $Data;
     }
+
+    //編集後の更新
+    public function updateName($name, $isSave=true)
+    {
+        $this->name = $name;
+        if ($isSave) {
+            $this->save();
+        }
+    }
+    public function updateGender($gender, $isSave=true)
+    {
+        $this->gender = $gender;
+        if ($isSave) {
+            $this->save();
+        }
+    }
+    public function updateEmail($email, $isSave=true)
+    {
+        $this->email = $email;
+        if ($isSave) {
+            $this->save();
+        }
+    }
+    public function updateContent($content, $isSave=true)
+    {
+        $this->content = $content;
+        if ($isSave) {
+            $this->save();
+        }
+    }
+
 }

@@ -8,11 +8,11 @@
 <div class="area">
     <h1>データ一覧</h1>
     <table>
-        <tr>
             <th class="th-1">名前</th>
             <th class="th-2">メールアドレス</th>
             <th class="th-3" >性別</th>
             <th class="th-4">内容</th>
+        　　　<th class="th-4">編集</th>
         </tr>
         @foreach($dataList as $data)
             <tr>
@@ -20,6 +20,12 @@
                 <td>{{ $data->email }}</td>
                 <td>{{ $data->gender }}</td>
                 <td>{{ $data->content }}</td>
+                <td>
+                    {{Form::open(['route'=>'getDataEdit'])}}
+                    {{Form::hidden('id',$data->id)}}
+                    {{Form::button('編集', ['type' => 'submit'])}}
+                    {{Form::close()}}
+                </td>
             </tr>
         @endforeach
     </table>

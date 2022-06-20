@@ -1,11 +1,13 @@
 @extends('layout.layout')
 
 @section('pageCss')
-    <link rel="stylesheet" href="./css/app2.css">
+    <link rel="stylesheet" href="./css/dataEdit.css">
 @endsection
 
 @section('content')
+    <a href="{{url('/Linux1')}}"><img id="ImagePenguin" src="image/image2.png" /></a>
     <div class="area1">
+        <h1>データ編集</h1>
         {{ Form::open(['route' => 'updateData']) }}
         {{ Form::hidden('id', $id) }}
         <div class="area1-1"> 名前：{{ Form::text('name', $name) }}</div></br>

@@ -2,13 +2,17 @@
 @import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho');
 
 /*レイアウト*/
-h1 {
+#ImagePenguin {
+    width: 15%;
     position: fixed;
-    top: 20%;
-    left: 50%;
+    top: 10%;
+    left: 10%;
     transform: translate(-50%,-50%);
 }
 
+h1 {
+
+}
 
 body {
     background-image: url("/image/image1.jpg");
@@ -19,23 +23,20 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
-a {
-    color: #dc6688;
-    text-decoration: none;
-}
-a:hover {
-    color: #dc6688;
-}
+
+
+
 .area1 {
     width: 100%;
-    max-width: 1000px;
+    max-width: 600px;
     background-color: rgba(255,255,255,0.8);
     padding: 20px;
     margin:0 0 0 0px;
     text-align: center;
+    word-break: break-word;
     letter-spacing: 0.03em;
     position: fixed;
-    top: 60%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     border-top-left-radius: 40px;
@@ -44,13 +45,9 @@ a:hover {
     border-bottom-left-radius: 40px;
 }
 
-h2 {
+.area1-1 .area1-2 .area1-3 .area1-4 {
     position: relative;
-    padding-left: 25px;
-    color: black;
-}
-h2 div {
-    overflow-wrap: break-word;
+    padding-left: 50px;
 }
 
 
@@ -151,3 +148,10 @@ body.appear #container{
         opacity: 1;
     }
 }
+
+.btn-1  {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+

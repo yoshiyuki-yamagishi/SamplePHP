@@ -86,7 +86,7 @@ h2:after {
     display: none;
 }
 
-/*bodyにappearクラスがついたら出現*/
+/*========= bodyにappearクラスがついたら出現 ===============*/
 body.appear .splashbg{
     display: block;
     content: "";
@@ -97,7 +97,7 @@ body.appear .splashbg{
     top: 0;
     left: 0;
     transform: scaleX(0);
-    background-color: #333;/*伸びる背景色の設定*/
+    background-color: #333;
     animation-name:PageAnime;
     animation-duration:1.2s;
     animation-timing-function:ease-in-out;
@@ -123,13 +123,13 @@ body.appear .splashbg{
     }
 }
 
-/*画面遷移の後現れるコンテンツ設定*/
+/*========= 画面遷移の後現れるコンテンツ設定 ===============*/
 
 #container{
-    opacity: 0;/*はじめは透過0に*/
+    opacity: 0; /*はじめは透過0に*/
 }
 
-/*bodyにappearクラスがついたら出現*/
+/*========= bodyにappearクラスがついたら出現 ===============*/
 body.appear #container{
     animation-name:PageAnimeAppear;
     animation-duration:1s;
@@ -153,9 +153,7 @@ body.appear #container{
     background: transparent;
 }
 
-                        /*deta CSS*/
-
-
+/*deta CSS*/
 table{
     width: auto;
     border-collapse:separate;

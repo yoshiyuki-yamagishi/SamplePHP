@@ -24,19 +24,17 @@ class IndexService
      * @param $content
      * @return array
      */
+
     public static function saveData($name, $email, $gender, $content,)
     {
-        // データを保存
         $userAddress = UserAddress::insert($name, $email, $gender, $content);
 
-        // 男性のデータをとる
         $maleData = UserAddress::getForGender(1);
         $genderStr = [
             1 => '男性',
             2 => '女性',
             3 => '漢女',
         ];
-
 
         $response = [
             'name' => $userAddress->name,
@@ -48,11 +46,14 @@ class IndexService
         return $response;
     }
 
+    /*
+     * フォーム確認画面、データ一覧画面
+     */
     public static function getDataList()
     {
         $data = UserAddress::getAllData();
         $responseList = [];
-        foreach ($data as $val) { //繰り返し処理
+        foreach ($data as $val) {
             $setData = [
                 'name' => $val->name,
                 'email' => $val->email,
@@ -66,11 +67,14 @@ class IndexService
         return $responseList;
     }
 
-    public static function editData($editId) //データ編集
+    /*
+     * データの編集
+     */
+    public static function editData($editId)
     {
 /*        $userAddressList = UserAddress::getForId($editId);
         $userAddress = $userAddressList->first();*/
-        $userAddress = UserAddress::find($editId); //UserAddressから$editIdの一つを見つけてくる
+        $userAddress = UserAddress::find($editId);
 
         $response = [
             'id' => $userAddress->id,
@@ -82,6 +86,9 @@ class IndexService
         return $response;
     }
 
+    /*
+     * データ更新
+     */
     public static function updateData($param)
     {
         $userAddress = UserAddress::find($param["id"]);
@@ -102,21 +109,23 @@ class IndexService
         return $response;
     }
 
-    public static function updateName($id, $name)
+/*    public static function updateName($id, $name)
     {
         $userAddress = UserAddress::find($id);
         $userAddress->name = $name;
         $userAddress->save();
 
-    }
+    }*/
+
 
 
     public function _saveData($name, $email, $gender, $content)
     {
-        // データを保存
         $userAddress = UserAddress::insert($name, $email, $gender, $content,);
 
-        // 男性のデータをとる
+        /*
+         * genderの数字から漢字へ表記変更
+         */
         $maleData = UserAddress::getForGender(1);
         $firstData = $maleData->first(); //first()メソッドでデータを取得
         $firstData->updataGender(2);

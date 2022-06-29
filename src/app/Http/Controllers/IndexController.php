@@ -15,10 +15,10 @@ class IndexController extends BaseController
      * @param Request $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public static function index(Request $request) //フォームに入力したデータをすべて渡しす。それを$requestとする。
+    public static function index(Request $request)
     {
         $param = $request->all();
-        return view('index', $param);        //ここでトップを変えた
+        return view('index', $param);
     }
 
     /**
@@ -27,39 +27,23 @@ class IndexController extends BaseController
      * @param Request $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public static function form(Request $request)  //requestファザード　httpリクエスト、データをもってきたり送信したりを簡単にする
+    public static function form(Request $request)
     {
-        $param_0 = $request->all(); //入力データをすべてparamにいれる
+        $param_0 = $request->all();
         $param = preg_replace( '/　|\s+/', '', $param_0);
         $response = IndexService::saveData($param['name'], $param['email'], $param['gender'], $param['content']);
-
-
-        /*
-            // email verify
-            $emailVerify = false;
-            if ($param['email'] == 'sample@example.com') {
-                $emailVerify = true;
-            }
-            $passwordVerify = false;
-            if ($param['password'] == 'nomunomu') {
-                $passwordVerify = true;
-            }
-
-            if ($emailVerify && $passwordVerify) {
-                return view('login', $param);
-            } else {
-                return view('logout', $param);
-            }
-        */
 
         return view('form3', $response);
 
     }
 
-    //追加
+
+    /*
+     *データ一覧を表示
+     */
     public static function dataList(Request $request)
     {
-        $param_0 = $request->all(); //入力データをすべてparamにいれる
+        $param_0 = $request->all();
         $param = preg_replace( '/　|\s+/', '', $param_0);
 
         $data = IndexService::getDataList();
@@ -70,27 +54,30 @@ class IndexController extends BaseController
         return view('formData', $response);
     }
 
-    //追加
     public static function dataEdit(Request $request)
     {
-        $param_0 = $request->all(); //入力データをすべてparamにいれる
+        $param_0 = $request->all();
         $param = preg_replace( '/　|\s+/', '', $param_0);
     }
 
-    //編集ボタンからレコードを抽出
+    /*
+     * 編集ボタン
+     */
     public static function getDataEdit(Request $request)
     {
-        $param = $request->all(); //入力データをすべてparamにいれる
-        $editId = $param["id"]; //$editIdにIdが入った$paramと定義する
-        $response = IndexService::editData($editId); //
+        $param = $request->all();
+        $editId = $param["id"];
+        $response = IndexService::editData($editId);
         return view('formDataEdit', $response);
     }
 
 
-    //更新ボタンを押したとき
+    /*
+     * 更新
+     */
     public static function updateData(Request $request)
     {
-        $param_0 = $request->all(); //入力データをすべてparamにいれる
+        $param_0 = $request->all();
         $param = preg_replace( '/　|\s+/', '', $param_0);
         $response = IndexService::updateData($param);
         //return view('form3', $response);

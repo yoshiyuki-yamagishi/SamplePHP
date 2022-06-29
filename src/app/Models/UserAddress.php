@@ -46,24 +46,28 @@ class UserAddress extends Model
      */
     public static function getForGender($gender)
     {
-        $model = self::where('gender', $gender)->get();  //where(カラム,
+        $model = self::where('gender', $gender)->get();
         return $model;
     }
 
-    //idからレコード抽出
+    /*
+     * idからレコード抽出
+     */
     public static function getForId($id)
     {
         $model = self::where('id', $id)->get();
         return $model;
     }
 
-    public static function getAllData() //getAllDataをつくって
+    public static function getAllData()
     {
-        $Data = self::get(); //$dataをつくってgetで自分自身つまりUseraddressからデータをもってくる
+        $Data = self::get();
         return $Data;
     }
 
-    //編集後の更新
+    /*
+     * 編集後の更新
+     */
     public function updateName($name, $isSave=true)
     {
         $this->name = $name;

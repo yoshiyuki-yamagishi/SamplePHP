@@ -6,5 +6,7 @@ RUN apt update \
     && docker-php-ext-enable memcached
 RUN a2enmod rewrite
 
+EXPOSE 80
+
 # install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

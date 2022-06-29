@@ -19,12 +19,13 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
-
+a {
+    color: #dc6688;
+    text-decoration: none;
+}
 a:hover {
     color: #dc6688;
-    text-decoration: inherit;
 }
-
 .area1 {
     width: 100%;
     max-width: 1000px;
@@ -37,15 +38,19 @@ a:hover {
     top: 60%;
     left: 50%;
     transform: translate(-50%,-50%);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 30px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
     border-bottom-left-radius: 40px;
 }
 
 h2 {
     position: relative;
     padding-left: 25px;
+    color: black;
+}
+h2 div {
+    overflow-wrap: break-word;
 }
 
 
@@ -86,7 +91,7 @@ h2:after {
     display: none;
 }
 
-/*bodyにappearクラスがついたら出現*/
+/*========= bodyにappearクラスがついたら出現 ===============*/
 body.appear .splashbg{
     display: block;
     content: "";
@@ -123,13 +128,13 @@ body.appear .splashbg{
     }
 }
 
-/*画面遷移の後現れるコンテンツ設定*/
+/*========= 画面遷移の後現れるコンテンツ設定 ===============*/
 
 #container{
     opacity: 0;/*はじめは透過0に*/
 }
 
-/*bodyにappearクラスがついたら出現*/
+/*========= bodyにappearクラスがついたら出現 ===============*/
 body.appear #container{
     animation-name:PageAnimeAppear;
     animation-duration:1s;
